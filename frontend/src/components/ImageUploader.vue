@@ -2,7 +2,6 @@
   <div>
     <div>
       <div v-if="!imageUrl" class="mb-4">No image selected</div>
-      <img v-if="imageUrl" :src="imageUrl" alt="Uploaded Image" class="" />
       <label class="file-input-label inline-block bg-green-500 text-white px-4 py-2 cursor-pointer rounded mb-4">
         Input File
         <input type="file" @change="onFileChange" class="hidden" />

@@ -1,22 +1,29 @@
 <template>
-    <div class="flex flex-nowrap space-x-8">
-      <div v-if="greyscaleImageUrl" class="flex-auto space-x-8">
-        <img :src="backendUrl + greyscaleImageUrl"/>
+  <div class="h-screen flex flex-col justify-center items-center space-y-4">
+    <!-- Images container -->
+    <div class="flex w-4/5 justify-center items-center space-x-4">
+      <!-- Original Image -->
+      <div v-if="originalImageUrl" class="flex-shrink-0 w-1/2">
+        <img :src="originalImageUrl" alt="Original Image" class="w-full h-auto">
       </div>
 
-      <div v-if="originalImageUrl" class="flex-initial">
-        <img :src="backendUrl + originalImageUrl"/>
-      </div>  
-    </div>
-    <div class="space-y-10 flex">
-      <div>
-        <ImageUploader @update="updateOriginalImageUrl"/>
-        <div v-if="originalImageUrl">
-          <GreyscaleButton :imageUrl="originalImageUrl" @updateImageUrl="updateGreyscaleImageUrl"/>
-        </div>
+      <!-- Greyscale Image -->
+      <div v-if="greyscaleImageUrl" class="flex-shrink-0 w-1/2">
+        <img :src="backendUrl + greyscaleImageUrl" alt="Greyscale Image" class="w-full h-auto">
       </div>
     </div>
+
+    <!-- Buttons container -->
+    <div class="flex space-x-4 mt-4 justify-center w-full">
+      <ImageUploader @update="updateOriginalImageUrl"/>
+      <div v-if="originalImageUrl">
+        <GreyscaleButton :imageUrl="originalImageUrl" @updateImageUrl="updateGreyscaleImageUrl"/>
+      </div>
+    </div>
+  </div>
 </template>
+
+
 
 <script lang="ts">
 import { ref } from 'vue';

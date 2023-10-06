@@ -1,5 +1,5 @@
 <template>
-  <button @click="convertToGreyscale" class="bg-blue-500">
+  <button @click="convertToGreyscale" class="inline-block bg-blue-500 text-white px-4 py-2 cursor-pointer rounded">
     Convert to Greyscale
   </button>
 </template>
